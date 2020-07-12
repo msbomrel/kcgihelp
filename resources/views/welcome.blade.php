@@ -1,100 +1,167 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+<html lang="en">
+<head>
+    <title>Kcgi Info Center</title>
+    <meta charset="utf-8">
+    <link href="{{ ('frontend/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ ('frontend/css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand active" href="/">Home</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            @if(!empty($navbars))
+                                @foreach($navbars as $navbar)
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="/{{$navbar->slug}}">{{ucwords($navbar->display_name)}}<span class="sr-only"></span></a>
+                                    </li>
+                                @endforeach
+                            @else
+                                No Pages Found !
+                            @endif
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<div id="banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="banner-text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam ratione illum fugit omnis,
+                        inventore consequatur quos illo repellendus voluptatem quod doloribus perspiciatis ab! Nemo,
+                        cupiditate animi autem adipisci blanditiis. Dolorum!</p>
+                    <a href="#">read more</a>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</div>
+<div id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="content-wrap">
+                    <img src="frontend/images/banner-bg.jpg" alt="image">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur assumenda et doloremque
+                        voluptate quibusdam. Est unde et, obcaecati at sequi totam quas molestiae pariatur ipsa neque
+                        ab, voluptatum tempora iure.</p>
+                    <a href="#">read more</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="content-wrap">
+                    <img src="frontend/images/banner-bg.jpg" alt="image">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur assumenda et doloremque
+                        voluptate quibusdam. Est unde et, obcaecati at sequi totam quas molestiae pariatur ipsa neque
+                        ab, voluptatum tempora iure.</p>
+                    <a href="#">read more</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="content-wrap">
+                    <img src="frontend/images/banner-bg.jpg" alt="image">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur assumenda et doloremque
+                        voluptate quibusdam. Est unde et, obcaecati at sequi totam quas molestiae pariatur ipsa neque
+                        ab, voluptatum tempora iure.</p>
+                    <a href="#">read more</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="content-wrap">
+                    <img src="frontend/images/banner-bg.jpg" alt="image">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur assumenda et doloremque
+                        voluptate quibusdam. Est unde et, obcaecati at sequi totam quas molestiae pariatur ipsa neque
+                        ab, voluptatum tempora iure.</p>
+                    <a href="#">read more</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="content-wrap">
+                    <img src="frontend/images/banner-bg.jpg" alt="image">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur assumenda et doloremque
+                        voluptate quibusdam. Est unde et, obcaecati at sequi totam quas molestiae pariatur ipsa neque
+                        ab, voluptatum tempora iure.</p>
+                    <a href="#">read more</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="content-wrap">
+                    <img src="frontend/images/banner-bg.jpg" alt="image">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur assumenda et doloremque
+                        voluptate quibusdam. Est unde et, obcaecati at sequi totam quas molestiae pariatur ipsa neque
+                        ab, voluptatum tempora iure.</p>
+                    <a href="#">read more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="video-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <iframe width="100%" height="500" src="https://www.youtube.com/embed/QUhG8RJbj50" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="footer-text">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="footer-text">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="footer-text">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <p class="copyright">copyright 2020.All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="{{ asset('frontend/js/jquery-3.4.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
+</body>
 </html>
