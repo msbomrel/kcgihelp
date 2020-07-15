@@ -31,6 +31,11 @@
             break;
     }
     @endif
+
+    $(document).on('click', '.del-btn', function () {
+        $('#master_delete').attr('action', $(this).data('url'));
+        $('#delete-modal').modal('show');
+    });
 </script>
 @yield('scripts')
 
